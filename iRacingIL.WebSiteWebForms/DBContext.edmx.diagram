@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3089de2ba3a7419f960a17819d3f1a04" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="iilracingModel.driver" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.incident_drivers" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.incident_final_results" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.incident_stuart_result" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.incident_stuarts" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.incident" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.race" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iilracingModel.track" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="iilracingModel.incidentdriver_driver" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentfinalresults_driver" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidents_reporter" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentstuartresult_driverid" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentstuarts_stuart" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentdriver_incident" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentfinalresults_incident" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidentstuartresult_incidentstuart" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incident_stuarts_incident" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.incidents_race" ManuallyRouted="false" />
+        <AssociationConnector Association="iilracingModel.races_track" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="iilracingModel.raceresult" Width="1.5" PointX="6" PointY="3" />
+        <AssociationConnector Association="iilracingModel.raceresult_driver" />
+        <AssociationConnector Association="iilracingModel.raceresult_race" />
+        <EntityTypeShape EntityType="iilracingModel.season" Width="1.5" PointX="1.5" PointY="1.375" />
+        <AssociationConnector Association="iilracingModel.races_season" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

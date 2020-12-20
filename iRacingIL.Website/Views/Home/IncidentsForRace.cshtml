@@ -1,0 +1,14 @@
+﻿@model List<Incident>
+@{
+    ViewData["Title"] = "אירועי בטיחות למירוץ";
+}
+
+<h2>אירועי בטיחות למירוץ</h2>
+
+@(Html.Grid(Model)
+        .Build(cols=> {
+            cols.Add(Model => Model.IncidentID).Titled("מזהה");
+        }))
+
+
+

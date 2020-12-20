@@ -1,0 +1,170 @@
+#intro {
+    height:500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    background-image: url(../assets/car5.jpg);
+}
+
+#introText {
+    height: 100%;
+    width: 50%;
+    background:rgba(0,0,0,0.70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    padding:30px;
+    padding-left:50px;
+}
+
+#introText h1 {
+    max-width:500px;
+    font-size: 70px;
+}
+
+#introText p {
+    max-width:500px;
+    font-size: 20px;
+}
+
+#introText button#cta{
+    border:none;
+    background:red;
+    color:white;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top:30px;
+    border-radius: 3px;
+    transition: background .2s;
+}
+
+#introText button#cta:hover {
+    background:rgb(122, 3, 3);
+}
+
+#league{
+    background:black;
+    padding: 50px;
+    padding-bottom:0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap
+}
+
+@media only screen and (max-width: 1100px) {
+    #league{
+        display:block;
+    }
+}
+#league a{
+    display: inline;
+    text-decoration: underline;
+}
+
+#leagueText{
+    margin-right:70px;
+    flex:1;
+    padding-bottom:50px;
+}
+
+#leagueText .logos{
+    margin-top:20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#broadcastText{
+    margin-right:70px;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    padding-bottom:50px;
+}
+
+#broadcastEmbed{
+    margin-top:20px;
+    width:100%;
+    padding-top:56.25%;
+    position:relative;
+}
+
+#broadcastEmbed iframe{
+    position:absolute;
+    left:0;
+    top:0;
+
+}
+
+#communityText{
+    flex:1;
+    padding-bottom:50px;
+}
+
+#communityText iframe{
+    margin-top:20px;
+}
+
+#leaders {
+    text-align: center;
+    padding: 50px;
+    background-image: url(../assets/leadersbg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#leaders a{
+    margin-top:40px;
+    text-decoration: underline;
+    line-height:1.2;
+    color: rgba(255,255,255,0.7)
+
+}
+#leaders a:hover{
+    color: rgba(255,255,255,0.7)
+}
+ul#driverList{
+    list-style: none;
+    color: white;
+    margin-top:50px;
+    margin-left:0;
+    padding-left:0;
+}
+li.driver{
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    margin-bottom:12px;
+    justify-content: center;
+}
+
+.driver .position{
+    font-weight: 900;
+    background: rgba(0,0,0,0.6);
+    font-size:25px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    margin-right:15px;
+ }
+.driver .name{ 
+    font-size:32px;
+    font-weight: 900;
+    width:500px;
+    text-align: left;
+}
+.driver .points{ 
+    font-size:32px;
+    font-weight: 900;
+}

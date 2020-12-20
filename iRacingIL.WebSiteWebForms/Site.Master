@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="iRacingIL.WebSiteWebForms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+   
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+
+    <title><%: Page.Title %></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    <link href="Content/shared.css?<%=DateTime.Now.Ticks %>" rel="stylesheet" />
+
+    <link href="Content/Site.css?<%=DateTime.Now.Ticks %>" rel="stylesheet" />
+
+    <link href="Content/select.css?<%=DateTime.Now.Ticks %>" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/black-tie/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script src="/Scripts/site.js"></script>
+
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        
+        <header>
+            <a href="/">
+                <div id="logo">iil</div>
+            </a>
+            <div id="navigation">
+                <a class="navUrl" href="/"><nav>Home</nav></a>
+                <a class="navUrl" href="/Championship"><nav>Championship</nav></a>
+                <a class="navUrl" href="/Championship?s=<%=mRace.season.number%>&r=<%=mRace.racenumber %>"><nav>Races</nav></a>
+                <a class="navUrl" href="/ReportIncident"><nav>Incidents</nav></a>
+                <a class="navUrl" href="/Contact"><nav>Contact</nav></a>
+                <!-- only for logged in users -->
+                <a class="navUrl" href="/IncidentResponse"><nav runat="server" id="navIncidentResponse">Response</nav></a>
+                <a class="navUrl" href="/Steward"><nav runat="server" id="navStuart">Steward</nav></a>
+                <a class="navUrl" href="/aa"><nav runat="server" id="navAdmin">Admin</nav></a>
+
+            </div>
+            <a class="navUrl" href="/Login" id="divLogin" runat="server"><nav id="auth">login</nav></a>
+            <a class="navUrl" href="/Logout" id="divLogout" runat="server"><nav id="auth"><%=Email %> (Logout)</nav></a>
+            
+        </header>
+
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <footer>
+            <div>© <%: DateTime.Now.Year %> - Built by Amir Meshulam & Nir Mizrahi</div>
+            <div id="sponsers">Sponserd By  <a href="https://simrace.co.il/" target="_blank">SimRace.Co.il</a> | Funyo Israel | Hexagon  <a href="https://hex.co.il/" target="_blank">Wordpress & SEO</a></div>
+        </footer>
+    </form>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62086521-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-62086521-2');
+
+        $(document).ready(function () {
+            setInterval(function () {
+
+                $.ajax({ url: 'keepalive.aspx' });
+
+            }, 120000);
+        });
+
+    </script>
+</body>
+</html>

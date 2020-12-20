@@ -1,0 +1,126 @@
+main {
+    text-align: center;
+    padding: 50px;
+    background-image: url(../assets/pat.jpg);
+    background-repeat: repeat;
+    /* background-size: cover; */
+    background-position: top center;
+    background-color: black;
+}
+
+main h1{
+    margin-bottom: 30px;
+}
+
+.formBlock {
+    background: rgba(0,0,0,0.8);
+    padding:15px 30px;
+    border-radius: 5px;
+    color: white;
+    /* width: 100%;  */
+    max-width: fit-content;
+    margin: 0 auto;
+    text-align: left;
+    display: block;
+    margin-top:30px;
+    min-width:490px;
+}
+
+.title{
+    font-weight:900;
+    font-style: italic;
+    font-size:42px;
+    margin-bottom: 12px;
+}
+
+label {
+    text-align: left;
+    margin-bottom:8px;
+    font-weight:700
+}
+
+input, textarea {
+    border-radius:3px;
+    padding: 8px;
+    width:400px;
+    font-family: 'Exo', sans-serif;
+}
+
+textarea {
+    width: 100%;
+}
+
+.input.number input{
+    width: 150px;
+}
+
+.input, .select, .textarea {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom:20px;
+}
+
+.button input {
+    border:none;
+    background:red;
+    color:white;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background .2s;
+}
+    
+button:hover {
+    background:rgb(122, 3, 3);
+}
+
+.select .choices{
+    width: 400px;
+}
+
+.select .multiSelect {
+    display:flex;
+    align-items: flex-start;
+}
+
+.select .multiSelect .choices:first-of-type{
+    margin-right:5px;
+}
+
+.select .multiSelect .choices:last-of-type{
+    margin-left:5px;
+    margin-bottom:0;
+}
+
+.select .choices:last-of-type{
+    margin-bottom:10px;
+}
+
+.note{
+    font-size: 12px;
+    margin-top:6px;
+}
+
+.titleSmall {
+    font-weight:900;
+    font-style: italic;
+    font-size:21px;
+    margin-bottom: 12px;
+}
+
+p{
+    max-width: 600px;
+    margin-bottom:20px;
+}
+
+#table1_wrapper td:last-of-type{
+    white-space: normal;
+}
+
+form {
+    height: 100%;
+}

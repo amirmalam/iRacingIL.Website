@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,body{
+    min-height:100%;
+    height:100%;
+}
+
+body {
+    background: rgb(51, 51, 51);
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Exo', sans-serif;
+}
+
+header {
+    height: 64px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    min-height: calc(100% - 130px);
+}
+
+h1{
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    margin: 0px;
+    font-size: 60px;
+    line-height: 1;
+    color: white;
+}
+
+a{
+    font-size:16px;
+    color: white;
+    text-decoration: none;
+    display:block;
+    height:100%;
+}
+
+a:hover{
+    color: red;
+}
+
+p {
+    margin-bottom:10px;
+    font-size:16px;
+    color: white;
+}
+
+#navigation {
+    display: flex;
+    height: 100%;
+    background:white;
+    margin: 0 auto;
+}
+
+a.navUrl {
+    color: black;
+}
+
+a.navUrl{
+    color: black;
+}
+
+#logo {
+    height: 100%;
+    width: 90px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-style: italic;
+    font-size:40px;
+    padding-right:8px;
+    cursor: pointer;
+}
+
+nav {
+    height: 100%;
+    min-width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background:white;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+nav:hover{
+    background: rgba(0,0,0,0.2);
+}
+
+#auth {
+    /* width: 70px; */
+    padding: 0 10px;
+}
+
+footer{
+    height:64px;
+    background:black;
+    padding:20px;
+    color:rgb(121, 121, 121);
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:14px;
+}
+
+#sponsers{
+    display: flex;
+}
+#sponsers a{
+    display:inline;
+    font-size:14px;
+    padding:0 5px;
+}
+
+.table {
+    color: white;
+    overflow: auto;
+    font-size:15px;
+}
+
+.table table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+    background: rgb(37, 37, 37);
+}
+
+body .table table.dataTable tbody tr{
+    background: rgb(0, 0, 0, 0.6);
+}
+body .table table.dataTable tbody tr.odd{
+    background: rgb(0, 0, 0, 0.8);
+}
+
+main .table td a{
+    color:white;
+    cursor: pointer;
+    font-size:15px;
+}
+
+main .table td a:hover{
+    color: red;
+}
+
+td, th{
+    white-space: nowrap;
+    /* text-align: left; */
+}
+
+tr{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+td{
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.table table.dataTable.row-border tbody th, .table table.dataTable.row-border tbody td, .table table.dataTable.display tbody th, .table table.dataTable.display tbody td{
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+td:nth-child(2), th:nth-child(2){
+    text-align: left;
+}
+
+.notes {
+    color: white;
+    font-size:13px;
+    text-align: left;
+}
+
+.points1 {background:rgba(0,255,0,0.5)}
+.points2 {background:rgba(0,255,0,0.45)}
+.points3 {background:rgba(0,255,0,0.4)}
+.points4 {background:rgba(0,255,0,0.35)}
+.points5 {background:rgba(0,255,0,0.3)}
+.points6 {background:rgba(0,255,0,0.25)}
+.points7 {background:rgba(0,255,0,0.2)}
+.points8 {background:rgba(0,255,0,0.15)}
+.points9 {background:rgba(0,255,0,0.1)}
+.points10 {background:rgba(0,255,0,0.05)}
+
+.bad1 {background:rgba(255,0,0,0.65)}
+.bad2 {background:rgba(255,0,0,0.6)}
+.bad3 {background:rgba(255,0,0,0.55)}
+.bad4 {background:rgba(255,0,0,0.5)}
+.bad5 {background:rgba(255,0,0,0.45)}
+.bad6 {background:rgba(255,0,0,0.4)}
+.bad7 {background:rgba(255,0,0,0.35)}
+.bad8 {background:rgba(255,0,0,0.3)}
+.bad9 {background:rgba(255,0,0,0.25)}
+.bad10 {background:rgba(255,0,0,0.2)}
+
+.badrev10 {background:rgba(255,0,0,0.65)}
+.badrev9 {background:rgba(255,0,0,0.6)}
+.badrev8 {background:rgba(255,0,0,0.55)}
+.badrev7 {background:rgba(255,0,0,0.5)}
+.badrev6 {background:rgba(255,0,0,0.45)}
+.badrev5 {background:rgba(255,0,0,0.4)}
+.badrev4 {background:rgba(255,0,0,0.35)}
+.badrev3 {background:rgba(255,0,0,0.3)}
+.badrev2 {background:rgba(255,0,0,0.25)}
+.badrev1 {background:rgba(255,0,0,0.2)}
+
+.pointsrev10 {background: rgba(0,255,0,0.5)}
+.pointsrev9 {background: rgba(0,255,0,0.45)}
+.pointsrev8 {background: rgba(0,255,0,0.4)}
+.pointsrev7 {background: rgba(0,255,0,0.35)}
+.pointsrev6 {background: rgba(0,255,0,0.3)}
+.pointsrev5 {background: rgba(0,255,0,0.25)}
+.pointsrev4 {background: rgba(0,255,0,0.2)}
+.pointsrev3 {background: rgba(0,255,0,0.15)}
+.pointsrev2 {background: rgba(0,255,0,0.1)}
+.pointsrev1 {background: rgba(0,255,0,0.05)}

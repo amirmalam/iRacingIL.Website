@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="iilracingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="drivers">
+          <Key>
+            <PropertyRef Name="driverid" />
+          </Key>
+          <Property Name="driverid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="iracingid" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+          <Property Name="saftypoints" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incident_drivers">
+          <Key>
+            <PropertyRef Name="idincident_driversid" />
+          </Key>
+          <Property Name="idincident_driversid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="incidentid" Type="int" Nullable="false" />
+          <Property Name="driverid" Type="int" Nullable="false" />
+          <Property Name="response" Type="varchar" MaxLength="5000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incident_final_results">
+          <Key>
+            <PropertyRef Name="incident_final_resultsid" />
+          </Key>
+          <Property Name="incident_final_resultsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="incidentid" Type="int" Nullable="false" />
+          <Property Name="driverid" Type="int" Nullable="false" />
+          <Property Name="cat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incident_stuart_result">
+          <Key>
+            <PropertyRef Name="incident_stuart_resultid" />
+          </Key>
+          <Property Name="incident_stuart_resultid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="incident_stuartid" Type="int" Nullable="false" />
+          <Property Name="driverid" Type="int" Nullable="false" />
+          <Property Name="cat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incident_stuarts">
+          <Key>
+            <PropertyRef Name="idincident_stuartsid" />
+          </Key>
+          <Property Name="idincident_stuartsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stuartid" Type="int" Nullable="false" />
+          <Property Name="incidentid" Type="int" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="incidents">
+          <Key>
+            <PropertyRef Name="incidentid" />
+          </Key>
+          <Property Name="incidentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="raceid" Type="int" Nullable="false" />
+          <Property Name="reporterid" Type="int" Nullable="false" />
+          <Property Name="lap" Type="int" Nullable="false" />
+          <Property Name="turn" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="5000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="raceresults">
+          <Key>
+            <PropertyRef Name="idraceresultsid" />
+          </Key>
+          <Property Name="idraceresultsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="driverid" Type="int" Nullable="false" />
+          <Property Name="qualifyposition" Type="int" Nullable="false" />
+          <Property Name="raceposition" Type="int" Nullable="false" />
+          <Property Name="incidents" Type="int" Nullable="false" />
+          <Property Name="lapscomlited" Type="int" Nullable="false" />
+          <Property Name="fastlapqualify" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fastlaprace" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="lapsled" Type="int" Nullable="false" />
+          <Property Name="interval" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="champpoints" Type="int" Nullable="false" />
+          <Property Name="raceid" Type="int" Nullable="false" />
+          <Property Name="srindex" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="saftypointsaddition" Type="int" Nullable="false" />
+          <Property Name="cpbase" Type="int" Nullable="false" />
+          <Property Name="cpquali" Type="int" Nullable="false" />
+          <Property Name="cplapsled" Type="int" Nullable="false" />
+          <Property Name="cpplacegain" Type="int" Nullable="false" />
+          <Property Name="cpfastestlap" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="races">
+          <Key>
+            <PropertyRef Name="raceid" />
+          </Key>
+          <Property Name="raceid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seasonid" Type="int" Nullable="false" />
+          <Property Name="racenumber" Type="int" Nullable="false" />
+          <Property Name="trackid" Type="int" Nullable="false" />
+          <Property Name="israced" Type="tinyint" Nullable="false" />
+          <Property Name="youtubeurl" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="when" Type="datetime" Nullable="false" />
+          <Property Name="imgurl" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="stuartsassigned" Type="tinyint" Nullable="false" />
+          <Property Name="israceclosed" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="seasons">
+          <Key>
+            <PropertyRef Name="seasonid" />
+          </Key>
+          <Property Name="seasonid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="car" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="iscurrentseason" Type="tinyint" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="totalraces" Type="int" Nullable="false" />
+          <Property Name="drops" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tracks">
+          <Key>
+            <PropertyRef Name="trackid" />
+          </Key>
+          <Property Name="trackid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="config" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="incident_stuarts_incident">
+          <End Role="incidents" Type="Self.incidents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incidents">
+              <PropertyRef Name="incidentid" />
+            </Principal>
+            <Dependent Role="incident_stuarts">
+              <PropertyRef Name="incidentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentdriver_driver">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_drivers" Type="Self.incident_drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_drivers">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentfinalresults_driver">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_final_results" Type="Self.incident_final_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_final_results">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidents_race">
+          <End Role="races" Type="Self.races" Multiplicity="1" />
+          <End Role="incidents" Type="Self.incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="races">
+              <PropertyRef Name="raceid" />
+            </Principal>
+            <Dependent Role="incidents">
+              <PropertyRef Name="raceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidents_reporter">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incidents" Type="Self.incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incidents">
+              <PropertyRef Name="reporterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuartresult_driverid">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_stuart_result" Type="Self.incident_stuart_result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_stuart_result">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuartresult_incidentstuart">
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="1" />
+          <End Role="incident_stuart_result" Type="Self.incident_stuart_result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incident_stuarts">
+              <PropertyRef Name="idincident_stuartsid" />
+            </Principal>
+            <Dependent Role="incident_stuart_result">
+              <PropertyRef Name="incident_stuartid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuarts_stuart">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1" />
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_stuarts">
+              <PropertyRef Name="stuartid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raceresult_driver">
+          <End Role="drivers" Type="Self.drivers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="raceresults" Type="Self.raceresults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="raceresults">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raceresult_race">
+          <End Role="races" Type="Self.races" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="raceresults" Type="Self.raceresults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="races">
+              <PropertyRef Name="raceid" />
+            </Principal>
+            <Dependent Role="raceresults">
+              <PropertyRef Name="raceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="races_season">
+          <End Role="seasons" Type="Self.seasons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="races" Type="Self.races" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seasons">
+              <PropertyRef Name="seasonid" />
+            </Principal>
+            <Dependent Role="races">
+              <PropertyRef Name="seasonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="races_track">
+          <End Role="tracks" Type="Self.tracks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="races" Type="Self.races" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tracks">
+              <PropertyRef Name="trackid" />
+            </Principal>
+            <Dependent Role="races">
+              <PropertyRef Name="trackid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iilracingModelStoreContainer">
+          <EntitySet Name="drivers" EntityType="Self.drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incident_drivers" EntityType="Self.incident_drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incident_final_results" EntityType="Self.incident_final_results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incident_stuart_result" EntityType="Self.incident_stuart_result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incident_stuarts" EntityType="Self.incident_stuarts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incidents" EntityType="Self.incidents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="raceresults" EntityType="Self.raceresults" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="races" EntityType="Self.races" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seasons" EntityType="Self.seasons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tracks" EntityType="Self.tracks" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="incident_stuarts_incident" Association="Self.incident_stuarts_incident">
+            <End Role="incidents" EntitySet="incidents" />
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+          </AssociationSet>
+          <AssociationSet Name="incidentdriver_driver" Association="Self.incidentdriver_driver">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_drivers" EntitySet="incident_drivers" />
+          </AssociationSet>
+          <AssociationSet Name="incidentfinalresults_driver" Association="Self.incidentfinalresults_driver">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_final_results" EntitySet="incident_final_results" />
+          </AssociationSet>
+          <AssociationSet Name="incidents_race" Association="Self.incidents_race">
+            <End Role="races" EntitySet="races" />
+            <End Role="incidents" EntitySet="incidents" />
+          </AssociationSet>
+          <AssociationSet Name="incidents_reporter" Association="Self.incidents_reporter">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incidents" EntitySet="incidents" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuartresult_driverid" Association="Self.incidentstuartresult_driverid">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_stuart_result" EntitySet="incident_stuart_result" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuartresult_incidentstuart" Association="Self.incidentstuartresult_incidentstuart">
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+            <End Role="incident_stuart_result" EntitySet="incident_stuart_result" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuarts_stuart" Association="Self.incidentstuarts_stuart">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+          </AssociationSet>
+          <AssociationSet Name="raceresult_driver" Association="Self.raceresult_driver">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="raceresults" EntitySet="raceresults" />
+          </AssociationSet>
+          <AssociationSet Name="raceresult_race" Association="Self.raceresult_race">
+            <End Role="races" EntitySet="races" />
+            <End Role="raceresults" EntitySet="raceresults" />
+          </AssociationSet>
+          <AssociationSet Name="races_season" Association="Self.races_season">
+            <End Role="seasons" EntitySet="seasons" />
+            <End Role="races" EntitySet="races" />
+          </AssociationSet>
+          <AssociationSet Name="races_track" Association="Self.races_track">
+            <End Role="tracks" EntitySet="tracks" />
+            <End Role="races" EntitySet="races" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iilracingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="driver">
+          <Key>
+            <PropertyRef Name="driverid" />
+          </Key>
+          <Property Name="driverid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="iracingid" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="saftypoints" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="incident_drivers" Relationship="Self.incidentdriver_driver" FromRole="drivers" ToRole="incident_drivers" />
+          <NavigationProperty Name="incident_final_results" Relationship="Self.incidentfinalresults_driver" FromRole="drivers" ToRole="incident_final_results" />
+          <NavigationProperty Name="incidents" Relationship="Self.incidents_reporter" FromRole="drivers" ToRole="incidents" />
+          <NavigationProperty Name="incident_stuart_result" Relationship="Self.incidentstuartresult_driverid" FromRole="drivers" ToRole="incident_stuart_result" />
+          <NavigationProperty Name="incident_stuarts" Relationship="Self.incidentstuarts_stuart" FromRole="drivers" ToRole="incident_stuarts" />
+          <NavigationProperty Name="raceresults" Relationship="iilracingModel.raceresult_driver" FromRole="driver" ToRole="raceresult" />
+        </EntityType>
+        <EntityType Name="incident_drivers">
+          <Key>
+            <PropertyRef Name="idincident_driversid" />
+          </Key>
+          <Property Name="idincident_driversid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="incidentid" Type="Int32" Nullable="false" />
+          <Property Name="driverid" Type="Int32" Nullable="false" />
+          <Property Name="response" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="driver" Relationship="Self.incidentdriver_driver" FromRole="incident_drivers" ToRole="drivers" />
+          <NavigationProperty Name="incident" Relationship="Self.incidentdriver_incident" FromRole="incident_drivers" ToRole="incidents" />
+        </EntityType>
+        <EntityType Name="incident_final_results">
+          <Key>
+            <PropertyRef Name="incident_final_resultsid" />
+          </Key>
+          <Property Name="incident_final_resultsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="incidentid" Type="Int32" Nullable="false" />
+          <Property Name="driverid" Type="Int32" Nullable="false" />
+          <Property Name="cat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="driver" Relationship="Self.incidentfinalresults_driver" FromRole="incident_final_results" ToRole="drivers" />
+          <NavigationProperty Name="incident" Relationship="Self.incidentfinalresults_incident" FromRole="incident_final_results" ToRole="incidents" />
+        </EntityType>
+        <EntityType Name="incident_stuart_result">
+          <Key>
+            <PropertyRef Name="incident_stuart_resultid" />
+          </Key>
+          <Property Name="incident_stuart_resultid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="incident_stuartid" Type="Int32" Nullable="false" />
+          <Property Name="driverid" Type="Int32" Nullable="false" />
+          <Property Name="cat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="driver" Relationship="Self.incidentstuartresult_driverid" FromRole="incident_stuart_result" ToRole="drivers" />
+          <NavigationProperty Name="incident_stuarts" Relationship="Self.incidentstuartresult_incidentstuart" FromRole="incident_stuart_result" ToRole="incident_stuarts" />
+        </EntityType>
+        <EntityType Name="incident_stuarts">
+          <Key>
+            <PropertyRef Name="idincident_stuartsid" />
+          </Key>
+          <Property Name="idincident_stuartsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stuartid" Type="Int32" Nullable="false" />
+          <Property Name="incidentid" Type="Int32" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="driver" Relationship="Self.incidentstuarts_stuart" FromRole="incident_stuarts" ToRole="drivers" />
+          <NavigationProperty Name="incident_stuart_result" Relationship="Self.incidentstuartresult_incidentstuart" FromRole="incident_stuarts" ToRole="incident_stuart_result" />
+          <NavigationProperty Name="incident" Relationship="Self.incident_stuarts_incident" FromRole="incident_stuarts" ToRole="incidents" />
+        </EntityType>
+        <EntityType Name="incident">
+          <Key>
+            <PropertyRef Name="incidentid" />
+          </Key>
+          <Property Name="incidentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="raceid" Type="Int32" Nullable="false" />
+          <Property Name="reporterid" Type="Int32" Nullable="false" />
+          <Property Name="lap" Type="Int32" Nullable="false" />
+          <Property Name="turn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="driver" Relationship="Self.incidents_reporter" FromRole="incidents" ToRole="drivers" />
+          <NavigationProperty Name="incident_drivers" Relationship="Self.incidentdriver_incident" FromRole="incidents" ToRole="incident_drivers" />
+          <NavigationProperty Name="incident_final_results" Relationship="Self.incidentfinalresults_incident" FromRole="incidents" ToRole="incident_final_results" />
+          <NavigationProperty Name="incident_stuarts" Relationship="Self.incident_stuarts_incident" FromRole="incidents" ToRole="incident_stuarts" />
+          <NavigationProperty Name="race" Relationship="Self.incidents_race" FromRole="incidents" ToRole="races" />
+        </EntityType>
+        <EntityType Name="race">
+          <Key>
+            <PropertyRef Name="raceid" />
+          </Key>
+          <Property Name="raceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seasonid" Type="Int32" Nullable="false" />
+          <Property Name="racenumber" Type="Int32" Nullable="false" />
+          <Property Name="trackid" Type="Int32" Nullable="false" />
+          <Property Name="israced" Type="Byte" Nullable="false" />
+          <Property Name="youtubeurl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="when" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="imgurl" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stuartsassigned" Type="Byte" Nullable="false" />
+          <Property Name="israceclosed" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="incidents" Relationship="Self.incidents_race" FromRole="races" ToRole="incidents" />
+          <NavigationProperty Name="track" Relationship="Self.races_track" FromRole="races" ToRole="tracks" />
+          <NavigationProperty Name="raceresults" Relationship="iilracingModel.raceresult_race" FromRole="race" ToRole="raceresult" />
+          <NavigationProperty Name="season" Relationship="iilracingModel.races_season" FromRole="race" ToRole="season" />
+        </EntityType>
+        <EntityType Name="track">
+          <Key>
+            <PropertyRef Name="trackid" />
+          </Key>
+          <Property Name="trackid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="config" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="races" Relationship="Self.races_track" FromRole="tracks" ToRole="races" />
+        </EntityType>
+        <Association Name="incidentdriver_driver">
+          <End Role="drivers" Type="Self.driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_drivers" Type="Self.incident_drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_drivers">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentfinalresults_driver">
+          <End Role="drivers" Type="Self.driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_final_results" Type="Self.incident_final_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_final_results">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidents_reporter">
+          <End Role="drivers" Type="Self.driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incidents" Type="Self.incident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incidents">
+              <PropertyRef Name="reporterid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuartresult_driverid">
+          <End Role="drivers" Type="Self.driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_stuart_result" Type="Self.incident_stuart_result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_stuart_result">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuarts_stuart">
+          <End Role="drivers" Type="Self.driver" Multiplicity="1" />
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drivers">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="incident_stuarts">
+              <PropertyRef Name="stuartid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentdriver_incident">
+          <End Role="incidents" Type="Self.incident" Multiplicity="1" />
+          <End Role="incident_drivers" Type="Self.incident_drivers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incidents">
+              <PropertyRef Name="incidentid" />
+            </Principal>
+            <Dependent Role="incident_drivers">
+              <PropertyRef Name="incidentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentfinalresults_incident">
+          <End Role="incidents" Type="Self.incident" Multiplicity="1" />
+          <End Role="incident_final_results" Type="Self.incident_final_results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incidents">
+              <PropertyRef Name="incidentid" />
+            </Principal>
+            <Dependent Role="incident_final_results">
+              <PropertyRef Name="incidentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidentstuartresult_incidentstuart">
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="1" />
+          <End Role="incident_stuart_result" Type="Self.incident_stuart_result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incident_stuarts">
+              <PropertyRef Name="idincident_stuartsid" />
+            </Principal>
+            <Dependent Role="incident_stuart_result">
+              <PropertyRef Name="incident_stuartid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incident_stuarts_incident">
+          <End Role="incidents" Type="Self.incident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incident_stuarts" Type="Self.incident_stuarts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="incidents">
+              <PropertyRef Name="incidentid" />
+            </Principal>
+            <Dependent Role="incident_stuarts">
+              <PropertyRef Name="incidentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="incidents_race">
+          <End Role="races" Type="Self.race" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="incidents" Type="Self.incident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="races">
+              <PropertyRef Name="raceid" />
+            </Principal>
+            <Dependent Role="incidents">
+              <PropertyRef Name="raceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="races_track">
+          <End Role="tracks" Type="Self.track" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="races" Type="Self.race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tracks">
+              <PropertyRef Name="trackid" />
+            </Principal>
+            <Dependent Role="races">
+              <PropertyRef Name="trackid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iracingilEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="drivers" EntityType="Self.driver" />
+          <EntitySet Name="incident_drivers" EntityType="Self.incident_drivers" />
+          <EntitySet Name="incident_final_results" EntityType="Self.incident_final_results" />
+          <EntitySet Name="incident_stuart_result" EntityType="Self.incident_stuart_result" />
+          <EntitySet Name="incident_stuarts" EntityType="Self.incident_stuarts" />
+          <EntitySet Name="incidents" EntityType="Self.incident" />
+          <EntitySet Name="races" EntityType="Self.race" />
+          <EntitySet Name="tracks" EntityType="Self.track" />
+          <AssociationSet Name="incidentdriver_driver" Association="Self.incidentdriver_driver">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_drivers" EntitySet="incident_drivers" />
+          </AssociationSet>
+          <AssociationSet Name="incidentfinalresults_driver" Association="Self.incidentfinalresults_driver">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_final_results" EntitySet="incident_final_results" />
+          </AssociationSet>
+          <AssociationSet Name="incidents_reporter" Association="Self.incidents_reporter">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incidents" EntitySet="incidents" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuartresult_driverid" Association="Self.incidentstuartresult_driverid">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_stuart_result" EntitySet="incident_stuart_result" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuarts_stuart" Association="Self.incidentstuarts_stuart">
+            <End Role="drivers" EntitySet="drivers" />
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+          </AssociationSet>
+          <AssociationSet Name="incidentdriver_incident" Association="Self.incidentdriver_incident">
+            <End Role="incidents" EntitySet="incidents" />
+            <End Role="incident_drivers" EntitySet="incident_drivers" />
+          </AssociationSet>
+          <AssociationSet Name="incidentfinalresults_incident" Association="Self.incidentfinalresults_incident">
+            <End Role="incidents" EntitySet="incidents" />
+            <End Role="incident_final_results" EntitySet="incident_final_results" />
+          </AssociationSet>
+          <AssociationSet Name="incidentstuartresult_incidentstuart" Association="Self.incidentstuartresult_incidentstuart">
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+            <End Role="incident_stuart_result" EntitySet="incident_stuart_result" />
+          </AssociationSet>
+          <AssociationSet Name="incident_stuarts_incident" Association="Self.incident_stuarts_incident">
+            <End Role="incidents" EntitySet="incidents" />
+            <End Role="incident_stuarts" EntitySet="incident_stuarts" />
+          </AssociationSet>
+          <AssociationSet Name="incidents_race" Association="Self.incidents_race">
+            <End Role="races" EntitySet="races" />
+            <End Role="incidents" EntitySet="incidents" />
+          </AssociationSet>
+          <AssociationSet Name="races_track" Association="Self.races_track">
+            <End Role="tracks" EntitySet="tracks" />
+            <End Role="races" EntitySet="races" />
+          </AssociationSet>
+          <EntitySet Name="raceresults" EntityType="iilracingModel.raceresult" />
+          <AssociationSet Name="raceresult_driver" Association="iilracingModel.raceresult_driver">
+            <End Role="driver" EntitySet="drivers" />
+            <End Role="raceresult" EntitySet="raceresults" />
+          </AssociationSet>
+          <AssociationSet Name="raceresult_race" Association="iilracingModel.raceresult_race">
+            <End Role="race" EntitySet="races" />
+            <End Role="raceresult" EntitySet="raceresults" />
+          </AssociationSet>
+          <EntitySet Name="seasons" EntityType="iilracingModel.season" />
+          <AssociationSet Name="races_season" Association="iilracingModel.races_season">
+            <End Role="season" EntitySet="seasons" />
+            <End Role="race" EntitySet="races" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="raceresult">
+          <Key>
+            <PropertyRef Name="idraceresultsid" />
+          </Key>
+          <Property Name="idraceresultsid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="driverid" Type="Int32" Nullable="false" />
+          <Property Name="qualifyposition" Type="Int32" Nullable="false" />
+          <Property Name="raceposition" Type="Int32" Nullable="false" />
+          <Property Name="incidents" Type="Int32" Nullable="false" />
+          <Property Name="lapscomlited" Type="Int32" Nullable="false" />
+          <Property Name="fastlapqualify" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fastlaprace" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lapsled" Type="Int32" Nullable="false" />
+          <Property Name="interval" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="champpoints" Type="Int32" Nullable="false" />
+          <Property Name="raceid" Type="Int32" Nullable="false" />
+          <Property Name="srindex" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="saftypointsaddition" Type="Int32" Nullable="false" />
+          <Property Name="cpbase" Type="Int32" Nullable="false" />
+          <Property Name="cpquali" Type="Int32" Nullable="false" />
+          <Property Name="cplapsled" Type="Int32" Nullable="false" />
+          <Property Name="cpplacegain" Type="Int32" Nullable="false" />
+          <Property Name="cpfastestlap" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="driver" Relationship="iilracingModel.raceresult_driver" FromRole="raceresult" ToRole="driver" />
+          <NavigationProperty Name="race" Relationship="iilracingModel.raceresult_race" FromRole="raceresult" ToRole="race" />
+        </EntityType>
+        <Association Name="raceresult_driver">
+          <End Type="iilracingModel.driver" Role="driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="iilracingModel.raceresult" Role="raceresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="driver">
+              <PropertyRef Name="driverid" />
+            </Principal>
+            <Dependent Role="raceresult">
+              <PropertyRef Name="driverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="raceresult_race">
+          <End Type="iilracingModel.race" Role="race" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="iilracingModel.raceresult" Role="raceresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="race">
+              <PropertyRef Name="raceid" />
+            </Principal>
+            <Dependent Role="raceresult">
+              <PropertyRef Name="raceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="season">
+          <Key>
+            <PropertyRef Name="seasonid" />
+          </Key>
+          <Property Name="seasonid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="car" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="iscurrentseason" Type="Byte" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <Property Name="totalraces" Type="Int32" Nullable="false" />
+          <Property Name="drops" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="races" Relationship="iilracingModel.races_season" FromRole="season" ToRole="race" />
+        </EntityType>
+        <Association Name="races_season">
+          <End Type="iilracingModel.season" Role="season" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="iilracingModel.race" Role="race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="season">
+              <PropertyRef Name="seasonid" />
+            </Principal>
+            <Dependent Role="race">
+              <PropertyRef Name="seasonid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iilracingModelStoreContainer" CdmEntityContainer="iracingilEntities">
+          <EntitySetMapping Name="drivers">
+            <EntityTypeMapping TypeName="iilracingModel.driver">
+              <MappingFragment StoreEntitySet="drivers">
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="iracingid" ColumnName="iracingid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="saftypoints" ColumnName="saftypoints" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incident_drivers">
+            <EntityTypeMapping TypeName="iilracingModel.incident_drivers">
+              <MappingFragment StoreEntitySet="incident_drivers">
+                <ScalarProperty Name="idincident_driversid" ColumnName="idincident_driversid" />
+                <ScalarProperty Name="incidentid" ColumnName="incidentid" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="response" ColumnName="response" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incident_final_results">
+            <EntityTypeMapping TypeName="iilracingModel.incident_final_results">
+              <MappingFragment StoreEntitySet="incident_final_results">
+                <ScalarProperty Name="incident_final_resultsid" ColumnName="incident_final_resultsid" />
+                <ScalarProperty Name="incidentid" ColumnName="incidentid" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="cat" ColumnName="cat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incident_stuart_result">
+            <EntityTypeMapping TypeName="iilracingModel.incident_stuart_result">
+              <MappingFragment StoreEntitySet="incident_stuart_result">
+                <ScalarProperty Name="incident_stuart_resultid" ColumnName="incident_stuart_resultid" />
+                <ScalarProperty Name="incident_stuartid" ColumnName="incident_stuartid" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="cat" ColumnName="cat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incident_stuarts">
+            <EntityTypeMapping TypeName="iilracingModel.incident_stuarts">
+              <MappingFragment StoreEntitySet="incident_stuarts">
+                <ScalarProperty Name="idincident_stuartsid" ColumnName="idincident_stuartsid" />
+                <ScalarProperty Name="stuartid" ColumnName="stuartid" />
+                <ScalarProperty Name="incidentid" ColumnName="incidentid" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incidents">
+            <EntityTypeMapping TypeName="iilracingModel.incident">
+              <MappingFragment StoreEntitySet="incidents">
+                <ScalarProperty Name="incidentid" ColumnName="incidentid" />
+                <ScalarProperty Name="raceid" ColumnName="raceid" />
+                <ScalarProperty Name="reporterid" ColumnName="reporterid" />
+                <ScalarProperty Name="lap" ColumnName="lap" />
+                <ScalarProperty Name="turn" ColumnName="turn" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="races">
+            <EntityTypeMapping TypeName="iilracingModel.race">
+              <MappingFragment StoreEntitySet="races">
+                <ScalarProperty Name="raceid" ColumnName="raceid" />
+                <ScalarProperty Name="seasonid" ColumnName="seasonid" />
+                <ScalarProperty Name="racenumber" ColumnName="racenumber" />
+                <ScalarProperty Name="trackid" ColumnName="trackid" />
+                <ScalarProperty Name="israced" ColumnName="israced" />
+                <ScalarProperty Name="youtubeurl" ColumnName="youtubeurl" />
+                <ScalarProperty Name="when" ColumnName="when" />
+                <ScalarProperty Name="imgurl" ColumnName="imgurl" />
+                <ScalarProperty Name="stuartsassigned" ColumnName="stuartsassigned" />
+                <ScalarProperty Name="israceclosed" ColumnName="israceclosed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tracks">
+            <EntityTypeMapping TypeName="iilracingModel.track">
+              <MappingFragment StoreEntitySet="tracks">
+                <ScalarProperty Name="trackid" ColumnName="trackid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="config" ColumnName="config" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raceresults">
+            <EntityTypeMapping TypeName="iilracingModel.raceresult">
+              <MappingFragment StoreEntitySet="raceresults">
+                <ScalarProperty Name="cpfastestlap" ColumnName="cpfastestlap" />
+                <ScalarProperty Name="cpplacegain" ColumnName="cpplacegain" />
+                <ScalarProperty Name="cplapsled" ColumnName="cplapsled" />
+                <ScalarProperty Name="cpquali" ColumnName="cpquali" />
+                <ScalarProperty Name="cpbase" ColumnName="cpbase" />
+                <ScalarProperty Name="saftypointsaddition" ColumnName="saftypointsaddition" />
+                <ScalarProperty Name="srindex" ColumnName="srindex" />
+                <ScalarProperty Name="raceid" ColumnName="raceid" />
+                <ScalarProperty Name="champpoints" ColumnName="champpoints" />
+                <ScalarProperty Name="interval" ColumnName="interval" />
+                <ScalarProperty Name="lapsled" ColumnName="lapsled" />
+                <ScalarProperty Name="fastlaprace" ColumnName="fastlaprace" />
+                <ScalarProperty Name="fastlapqualify" ColumnName="fastlapqualify" />
+                <ScalarProperty Name="lapscomlited" ColumnName="lapscomlited" />
+                <ScalarProperty Name="incidents" ColumnName="incidents" />
+                <ScalarProperty Name="raceposition" ColumnName="raceposition" />
+                <ScalarProperty Name="qualifyposition" ColumnName="qualifyposition" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="idraceresultsid" ColumnName="idraceresultsid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seasons">
+            <EntityTypeMapping TypeName="iilracingModel.season">
+              <MappingFragment StoreEntitySet="seasons">
+                <ScalarProperty Name="drops" ColumnName="drops" />
+                <ScalarProperty Name="totalraces" ColumnName="totalraces" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="iscurrentseason" ColumnName="iscurrentseason" />
+                <ScalarProperty Name="car" ColumnName="car" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="seasonid" ColumnName="seasonid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
