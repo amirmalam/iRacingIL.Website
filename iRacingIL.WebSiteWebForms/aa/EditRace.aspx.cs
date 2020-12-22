@@ -110,7 +110,7 @@ namespace iRacingIL.WebSiteWebForms.aa
                         d.email = string.Empty;
                         d.password = string.Empty;
                         d.saftypoints = int.Parse(System.Configuration.ConfigurationManager.AppSettings["StartingSaftyPoint"]);
-
+                        d.category = "";
                         db.drivers.Add(d);
                         db.SaveChanges();
 

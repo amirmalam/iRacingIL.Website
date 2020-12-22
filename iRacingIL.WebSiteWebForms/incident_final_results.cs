@@ -19,7 +19,7 @@ namespace iRacingIL.WebSiteWebForms
         public int driverid { get; set; }
         public int cat { get; set; }
     
-        public virtual driver driver { get; set; }
         public virtual incident incident { get; set; }
+        public virtual driver driver { get; set; }
     }
 }

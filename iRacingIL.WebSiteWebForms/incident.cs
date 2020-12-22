@@ -29,7 +29,6 @@ namespace iRacingIL.WebSiteWebForms
         public string turn { get; set; }
         public string desc { get; set; }
     
-        public virtual driver driver { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<incident_drivers> incident_drivers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -37,5 +36,6 @@ namespace iRacingIL.WebSiteWebForms
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<incident_stuarts> incident_stuarts { get; set; }
         public virtual race race { get; set; }
+        public virtual driver driver { get; set; }
     }
 }

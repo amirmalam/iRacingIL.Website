@@ -220,6 +220,7 @@
     <Content Include="aa\ManageIncidents.aspx" />
     <Content Include="assets\car3.jpg" />
     <Content Include="assets\car4.jpg" />
+    <Content Include="assets\dallara.png" />
     <Content Include="assets\favicon-16x16.png" />
     <Content Include="assets\favicon-32x32.png" />
     <Content Include="assets\favicon-96x96.png" />

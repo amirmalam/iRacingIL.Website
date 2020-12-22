@@ -25,9 +25,9 @@ namespace iRacingIL.WebSiteWebForms
         public int incidentid { get; set; }
         public string desc { get; set; }
     
-        public virtual driver driver { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<incident_stuart_result> incident_stuart_result { get; set; }
         public virtual incident incident { get; set; }
+        public virtual driver driver { get; set; }
     }
 }

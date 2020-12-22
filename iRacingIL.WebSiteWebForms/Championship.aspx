@@ -34,6 +34,7 @@
                             <th>Poles</th>
                             <th>Podiums</th>
                             <th>Points</th>
+                            <th>Cat</th>
                             <th title="Points minus drops">Points D</th>
                             <th>sR Index</th>
                             <th title="Safty Points">SP</th>
@@ -63,6 +64,7 @@
                                     <td class="text-center"><%# Eval("poles") %></td>
                                     <td class="text-center"><%# Eval("podiums") %></td>
                                     <td class="text-center"><%# Eval("champpoints") %></td>
+                                    <td class="text-center"><%# Eval("category") %></td>
                                     <td class="text-center"><%# Eval("minusdrops") %></td>
                                     <td class="text-center"><%# Eval("srindex") %></td>
                                     <td class="text-center"><%# Eval("saftypoints") %></td>
@@ -109,6 +111,7 @@
                                 <tr role="row">
                                     <th>#</th>
                                     <th>Name</th>
+                                    <th>Cat</th>
                                     <th class="text-center" title="Interval">Interval</th>
                                     <th class="text-center" title="Start Position">Start</th>
                                     <th class="text-center" title="Best Race Lap">Best Lap</th>
@@ -132,6 +135,7 @@
                                         <tr>
                                             <td class="bold"><%# Eval("raceposition") %></td>
                                             <td class="bold"><%# Eval("driver.name") %></td>
+                                            <td class="bold"><%# Eval("driver.category") %></td>
                                             <td class="text-center"><%# Eval("interval") %></td>
                                             <td class="text-center"><%# Eval("qualifyposition") %></td>
                                             <td class="text-center"><%# Eval("fastlaprace") %></td>
@@ -153,7 +157,6 @@
                         </table>
                         <ul class="notes" style="color: white;">
                             <li>Champ Points column is the current season champointship points.</li>
-                            <li>All "Points B" columns are next season point system simulation.</li>
                         </ul>
                     </div>
 
@@ -294,15 +297,14 @@
             var start = { tableid: 'table2', cssname: 'pointsrev', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 3 }
             var incidents = { tableid: 'table2', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 7 }
             var sRIndex = { tableid: 'table2', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 8 }
-            var points = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 10 }
-            var pointsbase = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 11 }
-            var pointspole = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 12 }
-            var pointsfastestlap = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 13 }
-            var pointsquali = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 14 }
+            var points = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 11 }
+            var pointsbase = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 12 }
+            var pointspole = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 13 }
+            var pointsfastestlap = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 14 }
             var pointslapsled = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 15 }
+            var pointsplacesgain = { tableid: 'table2', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 16 }
 
-
-            var cols = [start, incidents, sRIndex, points, pointsbase, pointspole, pointsfastestlap, pointsquali, pointslapsled];
+            var cols = [start, incidents, sRIndex, points, pointsbase, pointspole, pointsfastestlap, pointslapsled,pointsplacesgain];
 
             $("#table2").DataTable(
                 {
@@ -325,21 +327,21 @@
             var poles = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 4 }
             var podiums = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 5 }
             var points = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 6 }
-            var pointsd = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 7 }
-            var sRIndex = { tableid: 'table1', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 8 }
-            var sp = { tableid: 'table1', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 9 }
-            var race1 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 10 }
-            var race2 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 11 }
-            var race3 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 12 }
-            var race4 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 13 }
-            var race5 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 14 }
-            var race6 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 15 }
-            var race7 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 16 }
-            var race8 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 17 }
-            var race9 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 18 }
-            var race10 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 19 }
-            var race11 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 20 }
-            var race12 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 21 }
+            var pointsd = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 8 }
+            var sRIndex = { tableid: 'table1', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 9 }
+            var sp = { tableid: 'table1', cssname: 'bad', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 10 }
+            var race1 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 11 }
+            var race2 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 12 }
+            var race3 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 13 }
+            var race4 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 14 }
+            var race5 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 15 }
+            var race6 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 16 }
+            var race7 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 17 }
+            var race8 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 18 }
+            var race9 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 19 }
+            var race10 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 20 }
+            var race11 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 21 }
+            var race12 = { tableid: 'table1', cssname: 'points', levels: 10, maxValue: 0, minValue: 0, diffValue: 0, colIndex: 22 }
 
             var cols = [wins, poles, podiums, points, pointsd, sRIndex, sp,
                 race1, race2, race3, race4, race5, race6, race7, race8, race9, race10, race11, race12];

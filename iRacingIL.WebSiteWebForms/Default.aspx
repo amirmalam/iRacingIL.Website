@@ -16,8 +16,8 @@
             <p>Just like the official series, we are driving the Formula 3 car. Unlike the official series, We are driving with a fixed setup for an even playing field.</p>
             <p>This league is sponsored by <a href="https://simrace.co.il/" target="_blank">SimRace.co.il</a> & Funyo Israel</p> 
             <div class="logos"> 
-                <img src='./assets/porsche.png' width="120" />
-                <img src='./assets/simrace.png' width="243" height="60" />
+                <img src='./assets/dallara.png' width="170" />
+                <img src='./assets/simrace.png' width="150"  />
             </div>
         </div>
         <div id="broadcastText">

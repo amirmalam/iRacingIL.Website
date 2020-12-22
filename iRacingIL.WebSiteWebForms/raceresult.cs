@@ -34,7 +34,7 @@ namespace iRacingIL.WebSiteWebForms
         public int cpplacegain { get; set; }
         public int cpfastestlap { get; set; }
     
-        public virtual driver driver { get; set; }
         public virtual race race { get; set; }
+        public virtual driver driver { get; set; }
     }
 }

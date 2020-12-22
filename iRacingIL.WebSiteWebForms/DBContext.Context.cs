@@ -25,7 +25,6 @@ namespace iRacingIL.WebSiteWebForms
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<driver> drivers { get; set; }
         public virtual DbSet<incident_drivers> incident_drivers { get; set; }
         public virtual DbSet<incident_final_results> incident_final_results { get; set; }
         public virtual DbSet<incident_stuart_result> incident_stuart_result { get; set; }
@@ -35,5 +34,6 @@ namespace iRacingIL.WebSiteWebForms
         public virtual DbSet<track> tracks { get; set; }
         public virtual DbSet<raceresult> raceresults { get; set; }
         public virtual DbSet<season> seasons { get; set; }
+        public virtual DbSet<driver> drivers { get; set; }
     }
 }
